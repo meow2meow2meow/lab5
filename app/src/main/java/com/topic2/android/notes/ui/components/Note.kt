@@ -29,7 +29,10 @@ fun Note() {
             .background(Color.White, backgroundShape)
 
     ) {
-        NoteColor(modifier = Modifier.align(Alignment.CenterVertically), rwGreen, 40.dp, 4.dp, 1.dp)
+        NoteColor(modifier = Modifier
+            .align(Alignment.CenterVertically)
+            .padding(start = 16.dp, end = 16.dp), rwGreen, 40.dp, 1.dp)
+
 
         Column(
             modifier = Modifier
@@ -47,7 +50,7 @@ fun Note() {
         }
 
     }
-    
+
     @Composable
     fun NotePreview() {
         Note()

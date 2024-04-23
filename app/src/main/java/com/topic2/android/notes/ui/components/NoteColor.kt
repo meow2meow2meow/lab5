@@ -18,10 +18,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.Alignment
 
 @Composable
-fun NoteColor(modifier: Modifier = Modifier, color: Color, size: Dp, padding: Dp = 0.dp, border: Dp) {
+fun NoteColor(modifier: Modifier = Modifier, color: Color, size: Dp, border: Dp) {
     Box(
         modifier = modifier
-            .padding(padding)
             .size(size)
             .clip(CircleShape)
             .background(color)
