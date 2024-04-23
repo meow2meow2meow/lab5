@@ -13,38 +13,43 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.Alignment
+
 
 
 @Composable
-fun Note(){
+fun Note() {
     val backgroundShape: Shape = RoundedCornerShape(4.dp)
-    Row(modifier = Modifier
-        .padding(8.dp)
-        .shadow(1.dp, backgroundShape)
-        .fillMaxWidth()
-        .heightIn(min = 64.dp)
-        .background(Color.White, backgroundShape)
+    Row(
+        modifier = Modifier
+            .padding(8.dp)
+            .shadow(1.dp, backgroundShape)
+            .fillMaxWidth()
+            .heightIn(min = 64.dp)
+            .background(Color.White, backgroundShape)
 
     ) {
-        NoteColor(rwGreen, 40.dp, 4.dp, 1.dp)
+        NoteColor(modifier = Modifier.align(Alignment.CenterVertically), rwGreen, 40.dp, 4.dp, 1.dp)
 
-        Column(modifier = Modifier.weight(1f)) {
-            Text("Заголовок", maxLines = 1)
-            Text("Содержание", maxLines = 1)
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .align(Alignment.CenterVertically)
+        ) {
+
+            Checkbox(
+                checked = false, onCheckedChange = {},
+                modifier = Modifier
+                    .padding(start = 8.dp)
+                    .align(Alignment.CenterVertically)
+            )
+
         }
 
-        Checkbox(
-            checked = false, onCheckedChange = {},
-            modifier = Modifier.padding(start = 8.dp)
-        )
-
     }
-
-}
-
-
-@Preview
-@Composable
-fun NotePreview(){
-    Note()
+    
+    @Composable
+    fun NotePreview() {
+        Note()
+    }
 }
