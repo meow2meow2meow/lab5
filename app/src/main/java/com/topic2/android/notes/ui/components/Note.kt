@@ -14,38 +14,58 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 
 
 
 @Composable
-fun Note() {
+fun Note(){
     val backgroundShape: Shape = RoundedCornerShape(4.dp)
-    Row(
-        modifier = Modifier
-            .padding(8.dp)
-            .shadow(1.dp, backgroundShape)
-            .fillMaxWidth()
-            .heightIn(min = 64.dp)
-            .background(Color.White, backgroundShape)
-
+    Row(modifier = Modifier
+        .padding(8.dp)
+        .shadow(1.dp, backgroundShape)
+        .fillMaxWidth()
+        .heightIn(min = 64.dp)
+        .background(Color.White, backgroundShape)
     ) {
         NoteColor(modifier = Modifier
             .align(Alignment.CenterVertically)
             .padding(start = 16.dp, end = 16.dp), rwGreen, 40.dp, 1.dp)
-
-
-        Column(
-            modifier = Modifier
-                .weight(1f)
-                .align(Alignment.CenterVertically)
+        Column(modifier = Modifier
+            .weight(1f)
+            .align(Alignment.CenterVertically)
         ) {
-
-            Checkbox(
-                checked = false, onCheckedChange = {},
-                modifier = Modifier
-                    .padding(start = 8.dp)
-                    .align(Alignment.CenterVertically)
+            Text(
+                text = "Заголовок",
+                color = Color.Black,
+                maxLines = 1,
+                style = TextStyle(
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 16.sp,
+                    letterSpacing = 0.15.sp
+                )
             )
+            Text(
+                text = "Содержание",
+                color = Color.Black.copy(alpha = 0.75f),
+                maxLines = 1,
+                style = TextStyle(
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 14.sp,
+                    letterSpacing = 0.25.sp
+                )
+            )
+        }
+
+        Checkbox(
+             checked = false, onCheckedChange = {},
+             modifier = Modifier
+                 .padding(start = 8.dp)
+                 .align(Alignment.CenterVertically)
+            )
+
 
         }
 
@@ -55,4 +75,3 @@ fun Note() {
     fun NotePreview() {
         Note()
     }
-}
