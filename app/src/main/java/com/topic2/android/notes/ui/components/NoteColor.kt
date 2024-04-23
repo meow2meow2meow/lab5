@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.layout.onPlaced
 
 @Composable
 fun NoteColor(color: Color, size: Dp, padding: Dp = 0.dp, border: Dp) {
