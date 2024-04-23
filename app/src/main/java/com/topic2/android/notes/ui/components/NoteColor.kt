@@ -14,18 +14,19 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.Dp
 
 @Composable
-fun NoteColor() {
+fun NoteColor(color: Color, size: Dp, padding: Dp = 0.dp, border: Dp) {
     Box(
         modifier = Modifier
-            .padding(4.dp)
-            .size(40.dp)
+            .padding(padding)
+            .size(size)
             .clip(CircleShape)
-            .background(Color.Red)
+            .background(color)
             .border(
                 BorderStroke(
-                    2.dp,
+                    border,
                     SolidColor(Color.Black)
                 ),
                 CircleShape
@@ -36,5 +37,5 @@ fun NoteColor() {
 @Preview
 @Composable
 fun NoteColorPreview(){
-    NoteColor()
+    NoteColor(Color.Red, 40.dp, 4.dp, 2.dp)
 }
